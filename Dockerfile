@@ -19,8 +19,5 @@ ENV PORT=38471
 RUN mkdir -p /data && chown -R node:node /data
 EXPOSE 38471
 
-# Run as the unprivileged node user (uid 1000). A host bind mount at /data
-# must still be writable by that uid; see docs/OPERATIONS.md.
-USER node
-
+# Railway volumes are mounted root-owned; run as root so /data stays writable.
 CMD ["npm", "run", "start"]
