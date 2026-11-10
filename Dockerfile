@@ -17,7 +17,6 @@ ENV DATA_DIR=/data
 ENV PORT=38471
 
 RUN mkdir -p /data && chown -R node:node /data
-VOLUME /data
 EXPOSE 38471
 
 # Run as the unprivileged node user (uid 1000). A host bind mount at /data
